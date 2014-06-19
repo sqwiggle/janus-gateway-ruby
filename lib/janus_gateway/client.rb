@@ -15,10 +15,8 @@ module JanusGateway
       post! Session, root, { janus:"create", transaction:transaction_id }
     end
 
-    private
-
     def post(klass, path, attrs)
-      parse_response_for Session, raw_post(path, attrs)
+      parse_response_for klass, raw_post(path, attrs)
     end
 
     def post!(klass, path, attrs)
@@ -26,6 +24,8 @@ module JanusGateway
         raise response if response.kind_of?(::JanusGateway::Error)
       end
     end
+
+    private
 
     def raw_post(path, attrs)
       connection.post do |req|
