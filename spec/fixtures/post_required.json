@@ -1,0 +1,7 @@
+{
+  "janus": "error",
+  "error": {
+    "reason": "Use POST to create a session",
+    "code": 451
+  }
+}
