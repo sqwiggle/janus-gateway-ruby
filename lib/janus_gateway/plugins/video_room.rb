@@ -3,6 +3,8 @@ module JanusGateway
     class VideoRoom
       include Virtus.model
 
+      attribute :id, Integer
+
       def self.name
         "janus.plugin.videoroom"
       end

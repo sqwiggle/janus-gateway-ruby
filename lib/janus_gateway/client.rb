@@ -25,8 +25,6 @@ module JanusGateway
       end
     end
 
-    private
-
     def raw_post(path, attrs)
       connection.post do |req|
         req.url "/#{path}"
@@ -34,6 +32,12 @@ module JanusGateway
         req.body = attrs.to_json
       end
     end
+
+    def raw_get(path)
+      connection.get path
+    end
+
+    private
 
     def parse_response_for(klass, response)
       attrs = JSON.parse response.body
